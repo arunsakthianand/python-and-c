@@ -11,17 +11,14 @@ def line_gen(A,B):
     x_AB[:,i]= temp1.T
   return x_AB
 
-
-
-theFile = open("ptc.dat","r")
-theInts = []
-for val in theFile.read().split():
-	theInts.append(int(val))
-theFile.close()
+P = np.zeros(2)
+datain = np.loadtxt('ptc.dat',dtype='double')
+P[0] = datain[0]
+P[1] = datain[1]
 
 
 O = np.array([0,0])
-P = np.array([0.6,-0.2])
+#P = np.array([0.6,-0.2])
 
 plt.plot(O[0], O[1], 'o')
 plt.text(O[0] * (1 + 0.1), O[1] * (1 - 0.1) , 'O')
